@@ -1,0 +1,342 @@
+/* ===== 关于我们页面专用样式 ===== */
+.page-banner {
+    height: 300px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('../assets/img/about-banner.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+    position: relative;
+}
+
+.page-banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.breadcrumb {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.breadcrumb a {
+    color: var(--white);
+    opacity: 0.8;
+}
+
+.breadcrumb a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: var(--secondary-color);
+}
+
+/* 公司简介 */
+.about-intro {
+    padding: 80px 0;
+}
+
+.intro-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.intro-text {
+    line-height: 1.8;
+}
+
+.intro-text p {
+    margin-bottom: 20px;
+}
+
+.intro-image {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.intro-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.intro-image:hover img {
+    transform: scale(1.03);
+}
+
+.achievements {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.achievement-item {
+    text-align: center;
+    padding: 20px;
+    background: rgba(26, 82, 118, 0.05);
+    border-radius: var(--border-radius);
+}
+
+.achievement-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.achievement-text {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+}
+
+/* 发展历程 */
+.history-section {
+    padding: 80px 0;
+    background: var(--light-bg);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto 0;
+    padding-left: 50px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25px;
+    height: 100%;
+    width: 2px;
+    background: var(--primary-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-year {
+    position: absolute;
+    left: -70px;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 0 0 4px var(--light-bg);
+}
+
+.timeline-content {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    position: relative;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 30px;
+    width: 15px;
+    height: 15px;
+    background: var(--white);
+    transform: rotate(45deg);
+    box-shadow: -3px 3px 5px rgba(0,0,0,0.05);
+}
+
+.timeline-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* 企业文化 */
+.culture-section {
+    padding: 80px 0;
+}
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.culture-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.culture-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.culture-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.culture-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* 资质荣誉 */
+.certificates-section {
+    padding: 80px 0;
+    background: var(--light-bg);
+}
+
+.certificates-slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.certificate-item {
+    background: var(--white);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.certificate-item:hover {
+    transform: translateY(-5px);
+}
+
+.certificate-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.certificate-item p {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+/* 团队风采 */
+.team-section {
+    padding: 80px 0;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.team-member img:hover {
+    transform: scale(1.02);
+}
+
+.team-member h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+    .intro-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .intro-image {
+        order: -1;
+    }
+    
+    .achievements {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-banner {
+        height: 250px;
+    }
+    
+    .timeline {
+        padding-left: 30px;
+    }
+    
+    .timeline-year {
+        left: -50px;
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-banner h1 {
+        font-size: 2rem;
+    }
+    
+    .achievements {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline::before {
+        left: 15px;
+    }
+    
+    .timeline-year {
+        left: -40px;
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    
+    .timeline-content {
+        padding: 20px;
+    }
+    
+    .team-member img {
+        height: 200px;
+    }
+}
