@@ -3,124 +3,917 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="湖南达嘉科技 - 专业工厂级物流设备服务商，提供智能制造系统、自动化设备和维修保养技术服务">
-    <meta name="keywords" content="物流设备,智能制造,自动化设备,工业4.0,达嘉科技">
-    <title>湖南达嘉科技 - 工厂级物流设备服务商</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="preload" href="assets/img/logo.png" as="image" fetchpriority="high">
-    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <title>湖南达嘉科技有限公司 - 智能制造系统解决方案提供商</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background-color: #1a3e8c;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+        
+        /* 横幅区域 */
+        .banner {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1200x400');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .banner-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .banner-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #333;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e6b800;
+        }
+        
+        /* 关于我们 */
+        .about {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #1a3e8c;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #1a3e8c;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* 业务板块 */
+        .services {
+            padding: 60px 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #1a3e8c;
+        }
+        
+        /* 产品展示 */
+        .products {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .products-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            background-color: #ddd;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            background-color: #1a3e8c;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .product-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .product-item img {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+        
+        /* 客户案例 */
+        .cases {
+            padding: 60px 0;
+        }
+        
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .case-item {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .case-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .case-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .case-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .case-item:hover .case-overlay {
+            transform: translateY(0);
+        }
+        
+        /* 证书荣誉 */
+        .certificates {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .certificates-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+        }
+        
+        .certificate-item {
+            flex: 0 0 300px;
+            scroll-snap-align: start;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .certificate-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .certificate-content {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        /* 联系我们 */
+        .contact {
+            padding: 60px 0;
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #1a3e8c;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #1a3e8c;
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #ffcc00;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #ffcc00;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .cases-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- 头部导航 -->
     <header>
-        <nav class="navbar">
-            <div class="container nav-container">
-                <a href="/" class="logo-link" aria-label="达嘉科技首页">
-                    <img src="assets/img/logo.png" alt="达嘉科技" class="logo-img" width="180" height="60" loading="eager">
-                    <span class="logo-text">达嘉科技</span>
-                </a>
-                <button class="mobile-menu-btn" aria-label="菜单" aria-expanded="false">
-                    <span class="menu-icon"></span>
-                </button>
-                <ul class="menu">
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="products.html">产品中心</a></li>
-                    <li><a href="solutions.html">解决方案</a></li>
-                    <li><a href="cases.html">应用案例</a></li>
-                    <li><a href="about.html" class="active">关于我们</a></li>
-                    <li><a href="contact.html">联系我们</a></li>
-                </ul>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="https://via.placeholder.com/150x50?text=达嘉科技" alt="湖南达嘉科技有限公司">
             </div>
-        </nav>
+            <nav>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#services">业务板块</a></li>
+                    <li><a href="#products">产品中心</a></li>
+                    <li><a href="#cases">应用案例</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    
-    <!-- 轮播图 -->
-    <section class="banner" aria-label="公司简介">
-        <div class="banner-content">
-            <h1>工厂级物流设备解决方案</h1>
-            <p class="banner-subtitle">专注工业自动化 · 降低运营成本 · 解放劳动生产力</p>
-            <a href="contact.html" class="cta-button">获取方案</a>
+
+    <!-- 横幅区域 -->
+    <section class="banner" id="home">
+        <div class="container banner-content">
+            <div>
+                <h1>智能制造·MRO元件·物流装备服务解决方案</h1>
+                <p>专注工业自动化、降低企业运营成本、解放劳动生产力</p>
+                <a href="#contact" class="btn">联系我们</a>
+            </div>
         </div>
     </section>
-    
+
+    <!-- 关于我们 -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>关于我们</h2>
+                <p>湖南达嘉科技有限公司是一家专注服务于制造型企业的技术型企业，致力于成为行业领先的智能制造系统解决方案服务商。</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>公司简介</h3>
+                    <p>湖南达嘉科技有限公司成立于2018年，总部位于湖南省长沙市高新开发区。公司现有三大业务板块：智能制造系统品牌产品解决方案、自动化设备系统及信息化系统，和维修保养技术服务。</p>
+                    <p>产品和服务领域已涉及工程机械、汽车、航空、轨道交通、精密机械、新能源、水务、环境工程、食品医疗等行业。</p>
+                    <p>公司获得企业AAA评级认证，并已将ISO9001质量体系、ISO14001环境体系和ISO45001职业健康体系纳入公司管理工作中。</p>
+                    <p>达嘉科技专注于服务先进装备制造业，致力于成为行业领先的智能制造系统解决方案本地化服务提供商。</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/600x400?text=公司形象" alt="公司形象">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 业务板块 -->
-    <main>
-        <section class="services" aria-labelledby="services-heading">
-            <div class="container">
-                <h2 id="services-heading" class="section-title">核心业务</h2>
-                <div class="service-grid">
-                    <article class="service-card">
-                        <div class="service-icon" aria-hidden="true">🛠️</div>
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>业务板块</h2>
+                <p>我们提供全方位的智能制造解决方案，满足不同行业的需求</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://via.placeholder.com/400x300?text=智能制造" alt="智能制造">
+                    </div>
+                    <div class="service-content">
                         <h3>智能制造系统</h3>
-                        <p>定制化工业4.0解决方案，助力企业数字化转型</p>
-                        <a href="solutions.html#smart-manufacturing" class="learn-more">了解更多</a>
-                    </article>
-                    <article class="service-card">
-                        <div class="service-icon" aria-hidden="true">🏗️</div>
-                        <h3>自动化设备</h3>
-                        <p>智能起重机/立体仓储/安全防护全系列产品</p>
-                        <a href="products.html" class="learn-more">了解更多</a>
-                    </article>
-                    <article class="service-card">
-                        <div class="service-icon" aria-hidden="true">🔧</div>
-                        <h3>技术服务</h3>
-                        <p>全国800+工程师网络，AR远程技术支持</p>
-                        <a href="services.html" class="learn-more">了解更多</a>
-                    </article>
+                        <p>提供贯穿客户价值链的称重、分析和产品检测解决方案，帮助客户简化流程、提高生产率、确保产品符合法律法规要求以及优化成本。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://via.placeholder.com/400x300?text=自动化集成" alt="自动化集成">
+                    </div>
+                    <div class="service-content">
+                        <h3>自动化集成</h3>
+                        <p>提供0.1Nm至4000Nm区间的精准定招工具，数据采集可通过有线电缆、无线网络及工业网络实现，确保更为准确的生产过程和结果呈现。</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://via.placeholder.com/400x300?text=维修保养" alt="维修保养">
+                    </div>
+                    <div class="service-content">
+                        <h3>维修保养服务</h3>
+                        <p>全国800余名售后工程师，提供及时可靠的技术服务支持。完善的设备监控和校准系统，保证设备精度能力可靠。</p>
+                    </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- 客户案例 -->
-        <section class="clients" aria-labelledby="clients-heading">
-            <div class="container">
-                <h2 id="clients-heading" class="section-title">合作客户</h2>
-                <div class="client-logos">
-                    <div class="client-logo" aria-label="中联重科">中联重科</div>
-                    <div class="client-logo" aria-label="比亚迪">比亚迪</div>
-                    <div class="client-logo" aria-label="中航工业">中航工业</div>
-                    <div class="client-logo" aria-label="三一重工">三一重工</div>
+        </div>
+    </section>
+
+    <!-- 产品中心 -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>产品中心</h2>
+                <p>我们提供高质量的产品和解决方案，满足不同行业的需求</p>
+            </div>
+            <div class="products-tabs">
+                <button class="tab-btn active" onclick="openTab('smart')">智能装备</button>
+                <button class="tab-btn" onclick="openTab('mro')">MRO及自动化集成</button>
+                <button class="tab-btn" onclick="openTab('logistics')">物流装备</button>
+            </div>
+            
+            <div id="smart" class="tab-content active">
+                <div class="products-grid">
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x150?text=梅特勒托利多" alt="梅特勒托利多">
+                        <h3>梅特勒托利多产品</h3>
+                        <p>提供贯穿客户价值链的称重，分析和产品检测解决方案</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x150?text=自动定招系统" alt="自动定招系统">
+                        <h3>自动定招数字化装配系统</h3>
+                        <p>提供0.1Nm至4000Nm区间的精准定招工具</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x150?text=数字无线测量" alt="数字无线测量">
+                        <h3>数字无线测量工具</h3>
+                        <p>即插即用的无线收发模块，支持全系产品</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x150?text=实验室设备" alt="实验室设备">
+                        <h3>实验室分析仪器</h3>
+                        <p>雷达、遥感、射频、探测、声波、测控、实时监测、动态分析</p>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
-    
+            
+            <div id="mro" class="tab-content">
+                <div class="products-grid">
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x150?text=快速连接器" alt="快速连接器">
+                        <h3>电气和液压快速连接器</h3>
+                        <p>提供动力电源和电信号的航插连接</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x150?text=测试台" alt="测试台">
+                        <h3>测试台快接方案</h3>
+                        <p>液压快速连接器提供燃油、润滑油和液压高压油路的快速连接</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x150?text=多路对接" alt="多路对接">
+                        <h3>多路自动对接模块</h3>
+                        <p>集成推进和锁紧功能，实现电/液接头的快速对接及锁紧</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x150?text=全流量接头" alt="全流量接头">
+                        <h3>全流量快速接头</h3>
+                        <p>具备轴向角度、径向轴心偏心错位和连接间隙存在时的稳定工作</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="logistics" class="tab-content">
+                <div class="products-grid">
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x150?text=电动牵引机" alt="电动牵引机">
+                        <h3>电动牵引机系统</h3>
+                        <p>Master Tug 2吨~20吨，灵活、柔性、易于使用和维护</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x150?text=轻型起重机" alt="轻型起重机">
+                        <h3>OHT轻型起重机</h3>
+                        <p>2吨以内的起重重量，可布置多个工位同时作业</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x150?text=立体货柜" alt="立体货柜">
+                        <h3>智能立体货柜</h3>
+                        <p>与传统系统相比可节省70%以上面积占用</p>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/200x150?text=安全防护" alt="安全防护">
+                        <h3>工厂级安全防护</h3>
+                        <p>基于高分子弹性复合材料的成功运用，有效吸收和分散碰撞冲击力</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 应用案例 -->
+    <section class="cases" id="cases">
+        <div class="container">
+            <div class="section-title">
+                <h2>应用案例</h2>
+                <p>我们为众多行业领先企业提供了优质的产品和服务</p>
+            </div>
+            <div class="cases-grid">
+                <div class="case-item">
+                    <img src="https://via.placeholder.com/600x400?text=锂离子电池解决方案" alt="锂离子电池解决方案">
+                    <div class="case-overlay">
+                        <h3>梅特勒托利多锂离子电池行业解决方案</h3>
+                        <p>贯穿您工艺的整个价值链</p>
+                    </div>
+                </div>
+                <div class="case-item">
+                    <img src="https://via.placeholder.com/600x400?text=精准定位物流" alt="精准定位物流">
+                    <div class="case-overlay">
+                        <h3>精准定位物流解决方案</h3>
+                        <p>提高物流效率和准确性</p>
+                    </div>
+                </div>
+                <div class="case-item">
+                    <img src="https://via.placeholder.com/600x400?text=灵活转运物流" alt="灵活转运物流">
+                    <div class="case-overlay">
+                        <h3>灵活转运物流解决方案</h3>
+                        <p>高速回流率可达5倍/秒</p>
+                    </div>
+                </div>
+                <div class="case-item">
+                    <img src="https://via.placeholder.com/600x400?text=洁净环境物流" alt="洁净环境物流">
+                    <div class="case-overlay">
+                        <h3>洁净及生化环境物流解决方案</h3>
+                        <p>满足特殊环境需求</p>
+                    </div>
+                </div>
+                <div class="case-item">
+                    <img src="https://via.placeholder.com/600x400?text=集约化仓储" alt="集约化仓储">
+                    <div class="case-overlay">
+                        <h3>集约化仓储物流解决方案</h3>
+                        <p>完美轻松管理仓储</p>
+                    </div>
+                </div>
+                <div class="case-item">
+                    <img src="https://via.placeholder.com/600x400?text=工厂防护" alt="工厂防护">
+                    <div class="case-overlay">
+                        <h3>工厂级柔性防护系统解决方案</h3>
+                        <p>提升企业视觉化管理水平和生产安全等级</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 证书荣誉 -->
+    <section class="certificates">
+        <div class="container">
+            <div class="section-title">
+                <h2>证书荣誉</h2>
+                <p>我们通过多项国际认证，确保产品质量和服务水平</p>
+            </div>
+            <div class="certificates-slider">
+                <div class="certificate-item">
+                    <img src="https://via.placeholder.com/300x200?text=AAA级信用单位" alt="AAA级信用单位">
+                    <div class="certificate-content">
+                        <h3>AAA级信用单位</h3>
+                        <p>The credit rating is AAA</p>
+                    </div>
+                </div>
+                <div class="certificate-item">
+                    <img src="https://via.placeholder.com/300x200?text=质量服务信誉证书" alt="质量服务信誉证书">
+                    <div class="certificate-content">
+                        <h3>质量服务信誉证书</h3>
+                        <p>AAA质量管理体系认证中心</p>
+                    </div>
+                </div>
+                <div class="certificate-item">
+                    <img src="https://via.placeholder.com/300x200?text=重合同守信用证书" alt="重合同守信用证书">
+                    <div class="certificate-content">
+                        <h3>重合同守信用证书</h3>
+                        <p>AAA级信用单位</p>
+                    </div>
+                </div>
+                <div class="certificate-item">
+                    <img src="https://via.placeholder.com/300x200?text=资信等级证书" alt="资信等级证书">
+                    <div class="certificate-content">
+                        <h3>资信等级证书</h3>
+                        <p>Certificate of Audit, Review and Compensation</p>
+                    </div>
+                </div>
+                <div class="certificate-item">
+                    <img src="https://via.placeholder.com/300x200?text=诚信经营示范单位" alt="诚信经营示范单位">
+                    <div class="certificate-content">
+                        <h3>诚信经营示范单位证书</h3>
+                        <p>AAA质量管理体系认证中心</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我们</h2>
+                <p>期待与您合作，共创美好未来</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>湖南达嘉科技有限公司</h3>
+                    <p><strong>地址：</strong>湖南省长沙市高新开发区</p>
+                    <p><strong>电话：</strong>0731-82236369</p>
+                    <p><strong>网址：</strong>www.dajiatech.com</p>
+                    <p><strong>邮箱：</strong>info@dajiatech.com</p>
+                    
+                    <h3 style="margin-top: 30px;">行业客户</h3>
+                    <p>中航工业、中国航空发动机集团、ZOOMLION、CATL、BYD、亿纬锂能、AstraZeneca、BOEING、AIRBUS、BAE SYSTEMS等</p>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">您的姓名</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">公司名称</label>
+                            <input type="text" id="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">联系电话</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">电子邮箱</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言内容</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">提交留言</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 页脚 -->
-    <footer class="site-footer">
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="assets/img/logo-white.png" alt="达嘉科技" class="footer-logo" width="120" loading="lazy">
-                    <p class="footer-slogan">专注工业自动化解决方案</p>
-                </div>
-                <div class="footer-links">
-                    <h3 class="footer-heading">快速链接</h3>
+                <div class="footer-column">
+                    <h3>关于达嘉</h3>
                     <ul>
-                        <li><a href="about.html">关于我们</a></li>
-                        <li><a href="jobs.html">人才招聘</a></li>
-                        <li><a href="privacy.html">隐私政策</a></li>
-                        <li><a href="sitemap.html">网站地图</a></li>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">发展历程</a></li>
+                        <li><a href="#">企业文化</a></li>
+                        <li><a href="#">荣誉资质</a></li>
                     </ul>
                 </div>
-                <div class="footer-contact">
-                    <h3 class="footer-heading">联系我们</h3>
-                    <address>
-                        <p>湖南省长沙市高新开发区</p>
-                        <p>电话: <a href="tel:0731-82236369">0731-82236369</a></p>
-                        <p>邮箱: <a href="mailto:info@dajiatech.com">info@dajiatech.com</a></p>
-                    </address>
+                <div class="footer-column">
+                    <h3>产品中心</h3>
+                    <ul>
+                        <li><a href="#">智能装备</a></li>
+                        <li><a href="#">MRO及自动化集成</a></li>
+                        <li><a href="#">物流装备</a></li>
+                        <li><a href="#">维修保养服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>解决方案</h3>
+                    <ul>
+                        <li><a href="#">智能制造解决方案</a></li>
+                        <li><a href="#">物流自动化解决方案</a></li>
+                        <li><a href="#">工厂安全防护方案</a></li>
+                        <li><a href="#">行业定制方案</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">在线留言</a></li>
+                        <li><a href="#">招贤纳士</a></li>
+                        <li><a href="#">网站地图</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p class="copyright">©2023 湖南达嘉科技有限公司 湘ICP备XXXXXXXX号</p>
-                <div class="social-links">
-                    <a href="#" aria-label="微信公众号"><span class="icon-wechat"></span></a>
-                    <a href="#" aria-label="LinkedIn"><span class="icon-linkedin"></span></a>
-                </div>
+            <div class="copyright">
+                <p>&copy; 2023 湖南达嘉科技有限公司 版权所有 | 湘ICP备XXXXXXXX号</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js" defer></script>
+    <script>
+        // 标签页切换功能
+        function openTab(tabName) {
+            var i, tabcontent, tabbuttons;
+            
+            // 隐藏所有标签内容
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // 移除所有按钮的active类
+            tabbuttons = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+            
+            // 显示当前标签内容并激活按钮
+            document.getElementById(tabName).classList.add("active");
+            event.currentTarget.classList.add("active");
+        }
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
