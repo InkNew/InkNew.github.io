@@ -3,286 +3,383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="湖南达嘉科技产品中心 - 专业提供智能起重机、立体仓储系统、工业防护设备等工厂级物流自动化设备">
-    <meta name="keywords" content="物流设备,智能起重机,立体仓储,工业防护,自动化设备">
     <title>产品中心 - 湖南达嘉科技有限公司</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/products.css">
-    <link rel="stylesheet" href="css/about.css">
-    <link rel="preload" href="assets/img/products-banner.jpg" as="image">
-    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- 导航栏 -->
-    <header>
-        <nav class="navbar">
-            <div class="container nav-container">
-                <a href="index.html" class="logo-link" aria-label="达嘉科技首页">
-                    <img src="assets/img/logo.png" alt="达嘉科技" class="logo-img" width="180" height="60" loading="eager">
-                    <span class="logo-text">达嘉科技</span>
-                </a>
-                <button class="mobile-menu-btn" aria-label="菜单" aria-expanded="false">
-                    <span class="menu-icon"></span>
-                </button>
-                <ul class="menu">
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="products.html" class="active">产品中心</a></li>
-                    <li><a href="solutions.html">解决方案</a></li>
-                    <li><a href="cases.html">应用案例</a></li>
-                    <li><a href="about.html">关于我们</a></li>
-                    <li><a href="contact.html">联系我们</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    
-    <!-- 产品中心 Banner -->
-    <section class="page-banner" aria-label="产品中心">
-        <div class="container">
-            <h1>产品中心</h1>
-            <p class="breadcrumb">
-                <a href="index.html">首页</a> / <span>产品中心</span>
-            </p>
-        </div>
-    </section>
-    
-    <!-- 产品分类导航 -->
-    <nav class="product-categories" aria-label="产品分类">
-        <div class="container">
-            <ul>
-                <li><a href="#cranes" class="active">智能起重设备</a></li>
-                <li><a href="#storage">立体仓储系统</a></li>
-                <li><a href="#safety">工业防护设备</a></li>
-                <li><a href="#tools">智能工具系统</a></li>
-            </ul>
-        </div>
-    </nav>
-    
-    <!-- 产品展示 -->
+    <!-- 导入头部 -->
+    <div id="header-placeholder"></div>
+
     <main class="products-page">
-        <!-- 智能起重设备 -->
-        <section id="cranes" class="product-section" aria-labelledby="cranes-heading">
+        <!-- 产品中心横幅 -->
+        <section class="products-hero">
+            <div class="hero-overlay">
+                <h1>工业智能产品与解决方案</h1>
+                <p>提供高品质的工业设备和系统</p>
+            </div>
+        </section>
+
+        <!-- 产品分类导航 -->
+        <section class="product-nav">
+            <div class="container">
+                <div class="nav-tabs">
+                    <a href="#air-logistics" class="nav-tab active">空中物流设备</a>
+                    <a href="#storage" class="nav-tab">自动立体仓储</a>
+                    <a href="#safety" class="nav-tab">工业防撞防护</a>
+                    <a href="#lifting" class="nav-tab">升降工作台</a>
+                    <a href="#tools" class="nav-tab">精密生产装备</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 空中物流设备 -->
+        <section id="air-logistics" class="product-category">
             <div class="container">
                 <div class="section-header">
-                    <h2 id="cranes-heading">智能起重设备</h2>
-                    <p class="section-subtitle">高效、安全、精准的物料搬运解决方案</p>
+                    <h2>空中物流设备</h2>
+                    <div class="divider"></div>
+                    <p>提高生产效率的物料搬运解决方案</p>
                 </div>
                 
                 <div class="product-grid">
-                    <article class="product-card">
+                    <!-- 产品1 -->
+                    <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/img/products/crane-1.jpg" alt="组合悬挂式起重机" loading="lazy">
-                            <div class="product-badge">热销产品</div>
+                            <img src="assets/img/products/crane.jpg" alt="组合悬挂式起重机">
                         </div>
                         <div class="product-info">
                             <h3>组合悬挂式起重机</h3>
                             <ul class="product-features">
-                                <li>额定载荷：0.5-10吨</li>
-                                <li>跨度：3-15米</li>
-                                <li>工作级别：A3-A5</li>
+                                <li><i class="fas fa-check-circle"></i> 模块化设计，灵活组合</li>
+                                <li><i class="fas fa-check-circle"></i> 最大起重量2吨</li>
+                                <li><i class="fas fa-check-circle"></i> 工作区域内无盲区</li>
                             </ul>
-                            <a href="product-detail.html?id=1" class="product-btn">查看详情</a>
+                            <a href="#" class="btn-detail">查看详情</a>
                         </div>
-                    </article>
+                    </div>
                     
-                    <article class="product-card">
+                    <!-- 产品2 -->
+                    <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/img/products/crane-2.jpg" alt="Gfroce智能提升装置" loading="lazy">
+                            <img src="assets/img/products/hoist.jpg" alt="电动伺服智能提升机">
                         </div>
                         <div class="product-info">
-                            <h3>Gfroce智能提升装置</h3>
+                            <h3>电动伺服智能提升机</h3>
                             <ul class="product-features">
-                                <li>载荷范围：50-2000kg</li>
-                                <li>提升速度：0-15m/min</li>
-                                <li>定位精度：±1mm</li>
+                                <li><i class="fas fa-check-circle"></i> 精准定位，误差±0.5mm</li>
+                                <li><i class="fas fa-check-circle"></i> 最大起重量1吨</li>
+                                <li><i class="fas fa-check-circle"></i> 人机协作设计</li>
                             </ul>
-                            <a href="product-detail.html?id=2" class="product-btn">查看详情</a>
+                            <a href="#" class="btn-detail">查看详情</a>
                         </div>
-                    </article>
+                    </div>
                     
-                    <article class="product-card">
+                    <!-- 产品3 -->
+                    <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/img/products/crane-3.jpg" alt="桁架式悬臂起重机" loading="lazy">
+                            <img src="assets/img/products/balancer.jpg" alt="气动平衡器">
                         </div>
                         <div class="product-info">
-                            <h3>桁架式悬臂起重机</h3>
+                            <h3>气动平衡器</h3>
                             <ul class="product-features">
-                                <li>最大载荷：2吨</li>
-                                <li>回转半径：2-6米</li>
-                                <li>防护等级：IP54</li>
+                                <li><i class="fas fa-check-circle"></i> 零重力操作体验</li>
+                                <li><i class="fas fa-check-circle"></i> 最大负载300kg</li>
+                                <li><i class="fas fa-check-circle"></i> 节能环保设计</li>
                             </ul>
-                            <a href="product-detail.html?id=3" class="product-btn">查看详情</a>
+                            <a href="#" class="btn-detail">查看详情</a>
                         </div>
-                    </article>
+                    </div>
+                    
+                    <!-- 产品4 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/img/products/vacuum.jpg" alt="真空搬运设备">
+                        </div>
+                        <div class="product-info">
+                            <h3>真空搬运设备</h3>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check-circle"></i> 适用于平板类物料</li>
+                                <li><i class="fas fa-check-circle"></i> 最大吸附力500kg</li>
+                                <li><i class="fas fa-check-circle"></i> 安全防掉落设计</li>
+                            </ul>
+                            <a href="#" class="btn-detail">查看详情</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        
-        <!-- 立体仓储系统 -->
-        <section id="storage" class="product-section" aria-labelledby="storage-heading">
+
+        <!-- 自动立体仓储 -->
+        <section id="storage" class="product-category">
             <div class="container">
                 <div class="section-header">
-                    <h2 id="storage-heading">立体仓储系统</h2>
-                    <p class="section-subtitle">最大化空间利用率的智能存储解决方案</p>
+                    <h2>自动立体仓储</h2>
+                    <div class="divider"></div>
+                    <p>最大化利用存储空间的智能解决方案</p>
                 </div>
                 
                 <div class="product-grid">
-                    <article class="product-card">
+                    <!-- 产品1 -->
+                    <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/img/products/storage-1.jpg" alt="Compact Lift智能立体货柜" loading="lazy">
+                            <img src="assets/img/products/compact-lift.jpg" alt="Compact Lift">
                         </div>
                         <div class="product-info">
-                            <h3>Compact Lift智能立体货柜</h3>
+                            <h3>Compact Lift</h3>
                             <ul class="product-features">
-                                <li>存储高度：2-8米</li>
-                                <li>单柜容量：500-2000个存储位</li>
-                                <li>存取速度：≤10秒</li>
+                                <li><i class="fas fa-check-circle"></i> 适用于小件仓储</li>
+                                <li><i class="fas fa-check-circle"></i> 单托盘最大净度1500kg</li>
+                                <li><i class="fas fa-check-circle"></i> 节省70%存储空间</li>
                             </ul>
-                            <a href="product-detail.html?id=4" class="product-btn">查看详情</a>
+                            <a href="#" class="btn-detail">查看详情</a>
                         </div>
-                    </article>
+                    </div>
                     
-                    <article class="product-card">
+                    <!-- 产品2 -->
+                    <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/img/products/storage-2.jpg" alt="Compact Twin双托盘系统" loading="lazy">
-                            <div class="product-badge">新品上市</div>
+                            <img src="assets/img/products/compact-twin.jpg" alt="Compact Twin">
                         </div>
                         <div class="product-info">
-                            <h3>Compact Twin双托盘系统</h3>
+                            <h3>Compact Twin</h3>
                             <ul class="product-features">
-                                <li>双托盘同时作业</li>
-                                <li>拣选效率提升100%</li>
-                                <li>支持RFID识别</li>
+                                <li><i class="fas fa-check-circle"></i> 同时处理两个托盘</li>
+                                <li><i class="fas fa-check-circle"></i> 拣选效率提升100%</li>
+                                <li><i class="fas fa-check-circle"></i> 自动化存取</li>
                             </ul>
-                            <a href="product-detail.html?id=5" class="product-btn">查看详情</a>
+                            <a href="#" class="btn-detail">查看详情</a>
                         </div>
-                    </article>
+                    </div>
                     
-                    <article class="product-card">
+                    <!-- 产品3 -->
+                    <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/img/products/storage-3.jpg" alt="高密度自动化仓储系统" loading="lazy">
+                            <img src="assets/img/products/compact-double.jpg" alt="Compact Double">
                         </div>
                         <div class="product-info">
-                            <h3>高密度自动化仓储系统</h3>
+                            <h3>Compact Double</h3>
                             <ul class="product-features">
-                                <li>空间利用率提升300%</li>
-                                <li>WMS系统集成</li>
-                                <li>支持AGV对接</li>
+                                <li><i class="fas fa-check-circle"></i> 双深度托盘设计</li>
+                                <li><i class="fas fa-check-circle"></i> 存储容量增加100%</li>
+                                <li><i class="fas fa-check-circle"></i> 智能库存管理</li>
                             </ul>
-                            <a href="product-detail.html?id=6" class="product-btn">查看详情</a>
+                            <a href="#" class="btn-detail">查看详情</a>
                         </div>
-                    </article>
+                    </div>
                 </div>
             </div>
         </section>
-        
-        <!-- 工业防护设备 -->
-        <section id="safety" class="product-section" aria-labelledby="safety-heading">
+
+        <!-- 工业防撞防护 -->
+        <section id="safety" class="product-category">
             <div class="container">
                 <div class="section-header">
-                    <h2 id="safety-heading">工业防护设备</h2>
-                    <p class="section-subtitle">保障人员与设备安全的专业防护方案</p>
+                    <h2>工业防撞防护</h2>
+                    <div class="divider"></div>
+                    <p>保护人员和设备的安全解决方案</p>
                 </div>
                 
                 <div class="product-grid">
-                    <article class="product-card">
+                    <!-- 产品1 -->
+                    <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/img/products/safety-1.jpg" alt="弹性防撞柱" loading="lazy">
+                            <img src="assets/img/products/bumper.jpg" alt="弹性防撞柱">
                         </div>
                         <div class="product-info">
                             <h3>弹性防撞柱</h3>
                             <ul class="product-features">
-                                <li>高分子复合材料</li>
-                                <li>可吸收80%冲击能量</li>
-                                <li>自动复位功能</li>
+                                <li><i class="fas fa-check-circle"></i> 高分子复合材料</li>
+                                <li><i class="fas fa-check-circle"></i> 有效吸收冲击力</li>
+                                <li><i class="fas fa-check-circle"></i> 自动复位功能</li>
                             </ul>
-                            <a href="product-detail.html?id=7" class="product-btn">查看详情</a>
+                            <a href="#" class="btn-detail">查看详情</a>
                         </div>
-                    </article>
+                    </div>
                     
-                    <article class="product-card">
+                    <!-- 产品2 -->
+                    <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/img/products/safety-2.jpg" alt="货架吸能护角" loading="lazy">
+                            <img src="assets/img/products/guardrail.jpg" alt="人行护栏系统">
                         </div>
                         <div class="product-info">
-                            <h3>货架吸能护角</h3>
+                            <h3>人行护栏系统</h3>
                             <ul class="product-features">
-                                <li>360°防护设计</li>
-                                <li>免维护结构</li>
-                                <li>模块化安装</li>
+                                <li><i class="fas fa-check-circle"></i> 模块化设计</li>
+                                <li><i class="fas fa-check-circle"></i> 醒目标识</li>
+                                <li><i class="fas fa-check-circle"></i> 易于安装维护</li>
                             </ul>
-                            <a href="product-detail.html?id=8" class="product-btn">查看详情</a>
+                            <a href="#" class="btn-detail">查看详情</a>
                         </div>
-                    </article>
+                    </div>
                     
-                    <article class="product-card">
+                    <!-- 产品3 -->
+                    <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/img/products/safety-3.jpg" alt="柔性限高防护系统" loading="lazy">
-                            <div class="product-badge">专利产品</div>
+                            <img src="assets/img/products/roller.jpg" alt="弹性滚柱">
                         </div>
                         <div class="product-info">
-                            <h3>柔性限高防护系统</h3>
+                            <h3>弹性滚柱</h3>
                             <ul class="product-features">
-                                <li>旋转卸力设计</li>
-                                <li>可视警示标识</li>
-                                <li>地基无损安装</li>
+                                <li><i class="fas fa-check-circle"></i> 旋转卸力设计</li>
+                                <li><i class="fas fa-check-circle"></i> 保护车辆和货物</li>
+                                <li><i class="fas fa-check-circle"></i> 免维护</li>
                             </ul>
-                            <a href="product-detail.html?id=9" class="product-btn">查看详情</a>
+                            <a href="#" class="btn-detail">查看详情</a>
                         </div>
-                    </article>
+                    </div>
                 </div>
             </div>
         </section>
-        
-        <!-- 产品咨询CTA -->
-        <section class="product-cta">
+
+        <!-- 升降工作台 -->
+        <section id="lifting" class="product-category">
             <div class="container">
-                <div class="cta-content">
-                    <h2>需要定制化产品解决方案？</h2>
-                    <p>我们的工程师团队可以为您提供专业咨询和定制服务</p>
-                    <a href="contact.html" class="cta-button">立即咨询</a>
+                <div class="section-header">
+                    <h2>升降工作台</h2>
+                    <div class="divider"></div>
+                    <p>提高工作效率的升降解决方案</p>
+                </div>
+                
+                <div class="product-grid">
+                    <!-- 产品1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/img/products/lift-table.jpg" alt="升降工作台">
+                        </div>
+                        <div class="product-info">
+                            <h3>标准升降工作台</h3>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check-circle"></i> 高度可调</li>
+                                <li><i class="fas fa-check-circle"></i> 承重500-2000kg</li>
+                                <li><i class="fas fa-check-circle"></i> 安全防护门</li>
+                            </ul>
+                            <a href="#" class="btn-detail">查看详情</a>
+                        </div>
+                    </div>
+                    
+                    <!-- 产品2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/img/products/rotary-table.jpg" alt="圆形转盘工作台">
+                        </div>
+                        <div class="product-info">
+                            <h3>圆形转盘工作台</h3>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check-circle"></i> 360度旋转</li>
+                                <li><i class="fas fa-check-circle"></i> 手动/自动可选</li>
+                                <li><i class="fas fa-check-circle"></i> 精准定位</li>
+                            </ul>
+                            <a href="#" class="btn-detail">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 精密生产装备 -->
+        <section id="tools" class="product-category">
+            <div class="container">
+                <div class="section-header">
+                    <h2>精密生产装备</h2>
+                    <div class="divider"></div>
+                    <p>提高生产精度和效率的工具设备</p>
+                </div>
+                
+                <div class="product-grid">
+                    <!-- 产品1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/img/products/tools.jpg" alt="工业动力工具">
+                        </div>
+                        <div class="product-info">
+                            <h3>工业动力工具</h3>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check-circle"></i> 高扭矩输出</li>
+                                <li><i class="fas fa-check-circle"></i> 精准扭矩控制</li>
+                                <li><i class="fas fa-check-circle"></i> 数据记录功能</li>
+                            </ul>
+                            <a href="#" class="btn-detail">查看详情</a>
+                        </div>
+                    </div>
+                    
+                    <!-- 产品2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/img/products/tool-cabinet.jpg" alt="工具柜">
+                        </div>
+                        <div class="product-info">
+                            <h3>智能工具柜</h3>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check-circle"></i> 智能存取管理</li>
+                                <li><i class="fas fa-check-circle"></i> 权限控制系统</li>
+                                <li><i class="fas fa-check-circle"></i> 库存自动统计</li>
+                            </ul>
+                            <a href="#" class="btn-detail">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 产品优势 -->
+        <section class="product-advantages">
+            <div class="container">
+                <div class="section-header">
+                    <h2>我们的产品优势</h2>
+                    <div class="divider"></div>
+                </div>
+                
+                <div class="advantages-grid">
+                    <div class="advantage-item">
+                        <i class="fas fa-certificate"></i>
+                        <h3>质量认证</h3>
+                        <p>所有产品通过ISO9001质量体系认证</p>
+                    </div>
+                    
+                    <div class="advantage-item">
+                        <i class="fas fa-cogs"></i>
+                        <h3>专业技术</h3>
+                        <p>10年以上行业经验工程师团队</p>
+                    </div>
+                    
+                    <div class="advantage-item">
+                        <i class="fas fa-headset"></i>
+                        <h3>完善服务</h3>
+                        <p>全国800+售后服务工程师</p>
+                    </div>
+                    
+                    <div class="advantage-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>安全可靠</h3>
+                        <p>严格的安全测试和认证</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-    
-    <!-- 页脚 -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="assets/img/logo-white.png" alt="达嘉科技" class="footer-logo" width="120" loading="lazy">
-                    <p class="footer-slogan">专注工业自动化解决方案</p>
-                </div>
-                <div class="footer-links">
-                    <h3 class="footer-heading">产品中心</h3>
-                    <ul>
-                        <li><a href="products.html#cranes">智能起重设备</a></li>
-                        <li><a href="products.html#storage">立体仓储系统</a></li>
-                        <li><a href="products.html#safety">工业防护设备</a></li>
-                        <li><a href="products.html#tools">智能工具系统</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h3 class="footer-heading">联系我们</h3>
-                    <address>
-                        <p>湖南省长沙市高新开发区</p>
-                        <p>电话: <a href="tel:0731-82236369">0731-82236369</a></p>
-                        <p>邮箱: <a href="mailto:info@dajiatech.com">info@dajiatech.com</a></p>
-                    </address>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p class="copyright">©2023 湖南达嘉科技有限公司 湘ICP备XXXXXXXX号</p>
-                <div class="social-links">
-                    <a href="#" aria-label="微信公众号"><span class="icon-wechat"></span></a>
-                    <a href="#" aria-label="LinkedIn"><span class="icon-linkedin"></span></a>
-                </div>
-            </div>
-        </div>
-    </footer>
 
-    <script src="js/main.js" defer></script>
-    <script src="js/products.js" defer></script>
+    <!-- 导入页脚 -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+        $("#header-placeholder").load("templates/header.html");
+        $("#footer-placeholder").load("templates/footer.html");
+        
+        // 产品分类导航点击效果
+        $(".nav-tab").click(function(e){
+            e.preventDefault();
+            $(".nav-tab").removeClass("active");
+            $(this).addClass("active");
+            var target = $(this).attr("href");
+            $('html, body').animate({
+                scrollTop: $(target).offset().top - 100
+            }, 500);
+        });
+    });
+    </script>
 </body>
 </html>

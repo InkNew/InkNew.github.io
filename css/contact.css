@@ -1,0 +1,302 @@
+/* contact.css - 联系我们专用样式 */
+
+/* 主视觉区 */
+.contact-hero {
+    position: relative;
+    height: 50vh;
+    min-height: 400px;
+    background: linear-gradient(rgba(10, 31, 58, 0.85), rgba(10, 31, 58, 0.85)), 
+                url('../assets/img/contact-banner.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    margin-top: 80px;
+}
+
+.hero-overlay h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-overlay p {
+    font-size: 1.4rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* 联系信息区 */
+.contact-info {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-details {
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.contact-details h2 {
+    color: #2a5caa;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: #2a5caa;
+    margin-top: 5px;
+}
+
+.info-item h4 {
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.info-item p {
+    color: #666;
+    margin: 0;
+}
+
+.business-hours {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.business-hours h4 {
+    color: #2a5caa;
+    margin-bottom: 15px;
+}
+
+.business-hours p {
+    color: #666;
+    margin-bottom: 8px;
+}
+
+/* 联系表单 */
+.contact-form {
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.contact-form h2 {
+    color: #2a5caa;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group label span {
+    color: #e74c3c;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #2a5caa;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-submit {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #2a5caa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #1d4a8a;
+}
+
+/* 地图区 */
+.map-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.map-section h2 {
+    text-align: center;
+    color: #2a5caa;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #0066cc, #00aaff);
+    margin: 0 auto 30px;
+}
+
+.map-container {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 服务网点 */
+.service-network {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: #2a5caa;
+    margin-bottom: 15px;
+}
+
+.section-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.network-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.network-card {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.network-card h3 {
+    color: #2a5caa;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.network-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.network-card li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.network-card li:last-child {
+    border-bottom: none;
+}
+
+.network-card strong {
+    color: #333;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+    .contact-hero {
+        margin-top: 70px;
+    }
+    
+    .hero-overlay h1 {
+        font-size: 2.4rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-hero {
+        height: 40vh;
+        min-height: 350px;
+    }
+    
+    .hero-overlay h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-overlay p {
+        font-size: 1.2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-details, .contact-form {
+        padding: 20px;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .network-grid {
+        grid-template-columns: 1fr;
+    }
+}
