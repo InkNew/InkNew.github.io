@@ -1,192 +1,141 @@
-/* about.css - 与全局样式兼容版 */
-
-/* 主视觉区 */
-.about-hero {
-    position: relative;
-    height: 60vh;
-    min-height: 500px;
-    background: linear-gradient(rgba(10, 31, 58, 0.85), rgba(10, 31, 58, 0.85)), 
-                url('../assets/img/about-banner.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-    margin-top: 72px; /* 补偿固定header的高度 */
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '微软雅黑', sans-serif;
 }
 
-.hero-overlay h1 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.hero-overlay p {
-    font-size: 1.4rem;
-    max-width: 800px;
-    margin: 0 auto;
-    opacity: 0.9;
-}
-
-/* 公司概况 */
-.company-profile {
-    padding: 80px 0;
-    background-color: #fff;
-}
-
-.profile-content {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-}
-
-.profile-text {
-    flex: 1;
-}
-
-.profile-text h3 {
-    font-size: 1.8rem;
-    color: #2a5caa; /* 使用全局主色 */
-    margin-bottom: 10px;
-}
-
-.profile-text .en-name {
-    color: #666;
-    font-style: italic;
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-}
-
-.profile-image {
-    flex: 1;
-    border-radius: 8px;
+/* 视差横幅 */
+.parallax-hero {
+    height: 100vh;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+    background: #0a192f;
 }
 
-.profile-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.4s ease;
+.parallax-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 30vh;
+    text-align: center;
+    color: white;
 }
 
-/* 使命愿景 */
-.mission-vision {
-    padding: 80px 0;
-    background-color: #f1f5f9;
+.gradient-text {
+    background: linear-gradient(45deg, #00b4d8, #90e0ef);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
 }
 
-.mv-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+/* 公司简介 */
+.company-intro {
+    padding: 5rem 0;
+    background: #f9fbfd;
 }
 
-.mv-card {
+.floating-island {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(42, 92, 170, 0.1);
+    margin: 0 10%;
+    padding: 4rem;
+    position: relative;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.8;
+    margin: 2rem 0;
+}
+
+/* 核心价值 */
+.core-values {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #0a192f, #172a45);
+}
+
+.value-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 1rem;
+    transition: transform 0.3s;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+}
+
+/* 时间轴 */
+.neo-timeline {
+    padding: 4rem 0;
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    margin: 4rem 0;
+    align-items: center;
+}
+
+.timeline-badge {
+    width: 40px;
+    height: 40px;
+    background: #2a5caa;
+    border-radius: 50%;
+    margin-right: 2rem;
+}
+
+/* 合作伙伴 */
+.partner-carousel {
     background: #fff;
-    padding: 40px 30px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
+    padding: 3rem 0;
+    overflow: hidden;
 }
 
-.mv-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+.carousel-track {
+    display: flex;
+    animation: scroll 20s linear infinite;
 }
 
-.mv-card i {
-    font-size: 2.5rem;
-    color: #2a5caa; /* 使用全局主色 */
-    margin-bottom: 20px;
+.partner-logo img {
+    height: 80px;
+    margin: 0 3rem;
+    filter: grayscale(1);
+    transition: 0.3s;
 }
 
-.mv-card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-    color: #2a5caa;
+.partner-logo:hover img {
+    filter: grayscale(0);
 }
 
-/* 资质认证 */
-.certifications {
-    padding: 80px 0;
-    background-color: #fff;
-}
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
 
-.certs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    justify-items: center;
-}
-
-.cert-item {
-    text-align: center;
-    padding: 20px;
-    transition: transform 0.3s ease;
-}
-
-.cert-item:hover {
-    transform: scale(1.05);
-}
-
-.cert-item img {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    margin-bottom: 15px;
-}
-
-.cert-item p {
-    font-weight: 600;
-    color: #2a5caa;
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* 响应式设计 */
-@media (max-width: 992px) {
-    .profile-content {
-        flex-direction: column;
-    }
-    
-    .hero-overlay h1 {
-        font-size: 2.4rem;
-    }
-    
-    .about-hero {
-        margin-top: 68px; /* 调整补偿高度 */
-    }
-}
-
 @media (max-width: 768px) {
-    .hero-overlay h1 {
-        font-size: 2rem;
+    .gradient-text {
+        font-size: 2.5rem;
     }
-    
-    .hero-overlay p {
-        font-size: 1.2rem;
-    }
-    
-    .mv-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .profile-text h3 {
-        font-size: 1.6rem;
-    }
-}
 
-@media (max-width: 576px) {
-    .about-hero {
-        height: 50vh;
-        min-height: 400px;
-        margin-top: 60px;
+    .floating-island {
+        margin: 0 5%;
+        padding: 2rem;
     }
-    
-    .cert-item img {
-        width: 100px;
-        height: 100px;
+
+    .timeline-item {
+        flex-direction: column;
     }
 }

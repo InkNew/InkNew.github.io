@@ -1,385 +1,658 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>产品中心 - 湖南达嘉科技有限公司</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/products.css">
+    <style>
+        :root {
+            --primary-blue: #0066B3;
+            --tech-orange: #E67E22;
+            --dark-charcoal: #333333;
+            --light-gray: #F5F5F5;
+            --border-color: #E0E0E0;
+        }
+
+        .products-page {
+            background: white;
+            font-family: 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            color: #333;
+        }
+
+        /* 横幅设计 */
+        .products-hero {
+            height: 400px;
+            background: url('https://www.fusheng-china.com.cn/images/air-compressor-banner.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 102, 179, 0.7);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            color: white;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .products-hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .products-hero p {
+            font-size: 18px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* 产品分类导航 */
+        .product-nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-tab {
+            padding: 15px 30px;
+            color: var(--dark-charcoal);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .nav-tab:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-tab.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-tab.active::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-blue);
+        }
+
+        /* 产品分类区域 */
+        .product-category {
+            padding: 60px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+
+        .section-header h2 {
+            font-size: 28px;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-weight: bold;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-header h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--tech-orange);
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 16px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* 产品网格布局 */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+            border-color: var(--primary-blue);
+        }
+
+        .product-media {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            background-color: #f5f5f5;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s;
+            padding: 15px;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--tech-orange);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 18px;
+            color: var(--dark-charcoal);
+            margin-bottom: 15px;
+            font-weight: bold;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-specs {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .product-specs li {
+            padding: 8px 0;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #eee;
+            font-size: 14px;
+        }
+
+        .spec-label {
+            color: #666;
+        }
+
+        .spec-value {
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .btn-detail {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 10px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: auto;
+        }
+
+        .btn-detail:hover {
+            background: #005599;
+        }
+
+        /* 产品特点列表 */
+        .product-features {
+            margin: 15px 0;
+            padding-left: 0;
+        }
+
+        .product-features li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .product-features li::before {
+            content: "•";
+            position: absolute;
+            left: 5px;
+            color: var(--tech-orange);
+            font-weight: bold;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .products-hero {
+                height: 300px;
+            }
+            
+            .nav-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .nav-tab {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .products-hero {
+                height: 250px;
+            }
+            
+            .products-hero h1 {
+                font-size: 28px;
+            }
+            
+            .section-header h2 {
+                font-size: 24px;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 加载动画 */
+        .loading {
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+        }
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 102, 179, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary-blue);
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </head>
+
 <body>
-    <!-- 导入头部 -->
     <div id="header-placeholder"></div>
 
     <main class="products-page">
-        <!-- 产品中心横幅 -->
         <section class="products-hero">
-            <div class="hero-overlay">
-                <h1>工业智能产品与解决方案</h1>
-                <p>提供高品质的工业设备和系统</p>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>工业装备解决方案</h1>
+                <p>专业提供各类工业工具、自动化设备及定制化解决方案，满足不同行业的精密制造需求</p>
             </div>
         </section>
 
-        <!-- 产品分类导航 -->
-        <section class="product-nav">
-            <div class="container">
+        <nav class="product-nav">
+            <div class="nav-container">
                 <div class="nav-tabs">
-                    <a href="#air-logistics" class="nav-tab active">空中物流设备</a>
-                    <a href="#storage" class="nav-tab">自动立体仓储</a>
-                    <a href="#safety" class="nav-tab">工业防撞防护</a>
-                    <a href="#lifting" class="nav-tab">升降工作台</a>
-                    <a href="#tools" class="nav-tab">精密生产装备</a>
+                    <a href="#impact-tools" class="nav-tab active">英示测量工具</a>
+                    <a href="#storage-systems" class="nav-tab">威克士电动工具</a>
+                    <a href="#safety-equipment" class="nav-tab">阿特拉斯电动工具</a>
+                    <a href="#automation" class="nav-tab">非标自动化设备</a>
+                    <a href="#automation" class="nav-tab"></a>
                 </div>
             </div>
-        </section>
+        </nav>
 
-        <!-- 空中物流设备 -->
-        <section id="air-logistics" class="product-category">
-            <div class="container">
-                <div class="section-header">
-                    <h2>空中物流设备</h2>
-                    <div class="divider"></div>
-                    <p>提高生产效率的物料搬运解决方案</p>
-                </div>
-                
-                <div class="product-grid">
-                    <!-- 产品1 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/img/products/crane.jpg" alt="组合悬挂式起重机">
-                        </div>
-                        <div class="product-info">
-                            <h3>组合悬挂式起重机</h3>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check-circle"></i> 模块化设计，灵活组合</li>
-                                <li><i class="fas fa-check-circle"></i> 最大起重量2吨</li>
-                                <li><i class="fas fa-check-circle"></i> 工作区域内无盲区</li>
-                            </ul>
-                            <a href="#" class="btn-detail">查看详情</a>
-                        </div>
-                    </div>
-                    
-                    <!-- 产品2 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/img/products/hoist.jpg" alt="电动伺服智能提升机">
-                        </div>
-                        <div class="product-info">
-                            <h3>电动伺服智能提升机</h3>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check-circle"></i> 精准定位，误差±0.5mm</li>
-                                <li><i class="fas fa-check-circle"></i> 最大起重量1吨</li>
-                                <li><i class="fas fa-check-circle"></i> 人机协作设计</li>
-                            </ul>
-                            <a href="#" class="btn-detail">查看详情</a>
-                        </div>
-                    </div>
-                    
-                    <!-- 产品3 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/img/products/balancer.jpg" alt="气动平衡器">
-                        </div>
-                        <div class="product-info">
-                            <h3>气动平衡器</h3>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check-circle"></i> 零重力操作体验</li>
-                                <li><i class="fas fa-check-circle"></i> 最大负载300kg</li>
-                                <li><i class="fas fa-check-circle"></i> 节能环保设计</li>
-                            </ul>
-                            <a href="#" class="btn-detail">查看详情</a>
-                        </div>
-                    </div>
-                    
-                    <!-- 产品4 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/img/products/vacuum.jpg" alt="真空搬运设备">
-                        </div>
-                        <div class="product-info">
-                            <h3>真空搬运设备</h3>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check-circle"></i> 适用于平板类物料</li>
-                                <li><i class="fas fa-check-circle"></i> 最大吸附力500kg</li>
-                                <li><i class="fas fa-check-circle"></i> 安全防掉落设计</li>
-                            </ul>
-                            <a href="#" class="btn-detail">查看详情</a>
-                        </div>
-                    </div>
-                </div>
+        <!-- 产品分类区域将通过JS动态加载 -->
+        <div id="product-container">
+            <div class="loading">
+                <div class="loading-spinner"></div>
             </div>
-        </section>
-
-        <!-- 自动立体仓储 -->
-        <section id="storage" class="product-category">
-            <div class="container">
-                <div class="section-header">
-                    <h2>自动立体仓储</h2>
-                    <div class="divider"></div>
-                    <p>最大化利用存储空间的智能解决方案</p>
-                </div>
-                
-                <div class="product-grid">
-                    <!-- 产品1 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/img/products/compact-lift.jpg" alt="Compact Lift">
-                        </div>
-                        <div class="product-info">
-                            <h3>Compact Lift</h3>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check-circle"></i> 适用于小件仓储</li>
-                                <li><i class="fas fa-check-circle"></i> 单托盘最大净度1500kg</li>
-                                <li><i class="fas fa-check-circle"></i> 节省70%存储空间</li>
-                            </ul>
-                            <a href="#" class="btn-detail">查看详情</a>
-                        </div>
-                    </div>
-                    
-                    <!-- 产品2 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/img/products/compact-twin.jpg" alt="Compact Twin">
-                        </div>
-                        <div class="product-info">
-                            <h3>Compact Twin</h3>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check-circle"></i> 同时处理两个托盘</li>
-                                <li><i class="fas fa-check-circle"></i> 拣选效率提升100%</li>
-                                <li><i class="fas fa-check-circle"></i> 自动化存取</li>
-                            </ul>
-                            <a href="#" class="btn-detail">查看详情</a>
-                        </div>
-                    </div>
-                    
-                    <!-- 产品3 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/img/products/compact-double.jpg" alt="Compact Double">
-                        </div>
-                        <div class="product-info">
-                            <h3>Compact Double</h3>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check-circle"></i> 双深度托盘设计</li>
-                                <li><i class="fas fa-check-circle"></i> 存储容量增加100%</li>
-                                <li><i class="fas fa-check-circle"></i> 智能库存管理</li>
-                            </ul>
-                            <a href="#" class="btn-detail">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 工业防撞防护 -->
-        <section id="safety" class="product-category">
-            <div class="container">
-                <div class="section-header">
-                    <h2>工业防撞防护</h2>
-                    <div class="divider"></div>
-                    <p>保护人员和设备的安全解决方案</p>
-                </div>
-                
-                <div class="product-grid">
-                    <!-- 产品1 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/img/products/bumper.jpg" alt="弹性防撞柱">
-                        </div>
-                        <div class="product-info">
-                            <h3>弹性防撞柱</h3>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check-circle"></i> 高分子复合材料</li>
-                                <li><i class="fas fa-check-circle"></i> 有效吸收冲击力</li>
-                                <li><i class="fas fa-check-circle"></i> 自动复位功能</li>
-                            </ul>
-                            <a href="#" class="btn-detail">查看详情</a>
-                        </div>
-                    </div>
-                    
-                    <!-- 产品2 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/img/products/guardrail.jpg" alt="人行护栏系统">
-                        </div>
-                        <div class="product-info">
-                            <h3>人行护栏系统</h3>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check-circle"></i> 模块化设计</li>
-                                <li><i class="fas fa-check-circle"></i> 醒目标识</li>
-                                <li><i class="fas fa-check-circle"></i> 易于安装维护</li>
-                            </ul>
-                            <a href="#" class="btn-detail">查看详情</a>
-                        </div>
-                    </div>
-                    
-                    <!-- 产品3 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/img/products/roller.jpg" alt="弹性滚柱">
-                        </div>
-                        <div class="product-info">
-                            <h3>弹性滚柱</h3>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check-circle"></i> 旋转卸力设计</li>
-                                <li><i class="fas fa-check-circle"></i> 保护车辆和货物</li>
-                                <li><i class="fas fa-check-circle"></i> 免维护</li>
-                            </ul>
-                            <a href="#" class="btn-detail">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 升降工作台 -->
-        <section id="lifting" class="product-category">
-            <div class="container">
-                <div class="section-header">
-                    <h2>升降工作台</h2>
-                    <div class="divider"></div>
-                    <p>提高工作效率的升降解决方案</p>
-                </div>
-                
-                <div class="product-grid">
-                    <!-- 产品1 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/img/products/lift-table.jpg" alt="升降工作台">
-                        </div>
-                        <div class="product-info">
-                            <h3>标准升降工作台</h3>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check-circle"></i> 高度可调</li>
-                                <li><i class="fas fa-check-circle"></i> 承重500-2000kg</li>
-                                <li><i class="fas fa-check-circle"></i> 安全防护门</li>
-                            </ul>
-                            <a href="#" class="btn-detail">查看详情</a>
-                        </div>
-                    </div>
-                    
-                    <!-- 产品2 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/img/products/rotary-table.jpg" alt="圆形转盘工作台">
-                        </div>
-                        <div class="product-info">
-                            <h3>圆形转盘工作台</h3>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check-circle"></i> 360度旋转</li>
-                                <li><i class="fas fa-check-circle"></i> 手动/自动可选</li>
-                                <li><i class="fas fa-check-circle"></i> 精准定位</li>
-                            </ul>
-                            <a href="#" class="btn-detail">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 精密生产装备 -->
-        <section id="tools" class="product-category">
-            <div class="container">
-                <div class="section-header">
-                    <h2>精密生产装备</h2>
-                    <div class="divider"></div>
-                    <p>提高生产精度和效率的工具设备</p>
-                </div>
-                
-                <div class="product-grid">
-                    <!-- 产品1 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/img/products/tools.jpg" alt="工业动力工具">
-                        </div>
-                        <div class="product-info">
-                            <h3>工业动力工具</h3>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check-circle"></i> 高扭矩输出</li>
-                                <li><i class="fas fa-check-circle"></i> 精准扭矩控制</li>
-                                <li><i class="fas fa-check-circle"></i> 数据记录功能</li>
-                            </ul>
-                            <a href="#" class="btn-detail">查看详情</a>
-                        </div>
-                    </div>
-                    
-                    <!-- 产品2 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="assets/img/products/tool-cabinet.jpg" alt="工具柜">
-                        </div>
-                        <div class="product-info">
-                            <h3>智能工具柜</h3>
-                            <ul class="product-features">
-                                <li><i class="fas fa-check-circle"></i> 智能存取管理</li>
-                                <li><i class="fas fa-check-circle"></i> 权限控制系统</li>
-                                <li><i class="fas fa-check-circle"></i> 库存自动统计</li>
-                            </ul>
-                            <a href="#" class="btn-detail">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 产品优势 -->
-        <section class="product-advantages">
-            <div class="container">
-                <div class="section-header">
-                    <h2>我们的产品优势</h2>
-                    <div class="divider"></div>
-                </div>
-                
-                <div class="advantages-grid">
-                    <div class="advantage-item">
-                        <i class="fas fa-certificate"></i>
-                        <h3>质量认证</h3>
-                        <p>所有产品通过ISO9001质量体系认证</p>
-                    </div>
-                    
-                    <div class="advantage-item">
-                        <i class="fas fa-cogs"></i>
-                        <h3>专业技术</h3>
-                        <p>10年以上行业经验工程师团队</p>
-                    </div>
-                    
-                    <div class="advantage-item">
-                        <i class="fas fa-headset"></i>
-                        <h3>完善服务</h3>
-                        <p>全国800+售后服务工程师</p>
-                    </div>
-                    
-                    <div class="advantage-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>安全可靠</h3>
-                        <p>严格的安全测试和认证</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
-    <!-- 导入页脚 -->
     <div id="footer-placeholder"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-    $(function(){
-        $("#header-placeholder").load("templates/header.html");
-        $("#footer-placeholder").load("templates/footer.html");
-        
-        // 产品分类导航点击效果
-        $(".nav-tab").click(function(e){
-            e.preventDefault();
-            $(".nav-tab").removeClass("active");
-            $(this).addClass("active");
-            var target = $(this).attr("href");
-            $('html, body').animate({
-                scrollTop: $(target).offset().top - 100
-            }, 500);
+        // 产品数据
+        const productsData = {
+            "impact-tools": {
+                title: "英示精密测量工具",
+                description: "高精度工业测量解决方案，满足各类精密制造领域的测量需求",
+                products: [
+                    {
+                        name: "INSIZE 数显千分尺 0-25mm",
+                        image: "https://m.insize.cn/upfiles/NP/thumb_170x120/3594s.jpg",
+                        badge: "热销产品",
+                        specs: [
+                            { label: "测量范围", value: "0-25mm" },
+                            { label: "分辨率", value: "0.001mm" },
+                            { label: "精度", value: "±0.002mm" }
+                        ],
+                        features: [
+                            "高精度研磨螺杆结构",
+                            "IP65防护等级",
+                            "自动温度补偿",
+                            "可切换mm/inch单位"
+                        ]
+                    },
+                    {
+                        name: "INSIZE 工业激光测距仪 ISL-100",
+                        image: "https://m.insize.cn/upfiles/products/thumb_170x120/9561s.jpg",
+                        specs: [
+                            { label: "测量范围", value: "0.05-100m" },
+                            { label: "精度", value: "±1.5mm" },
+                            { label: "激光等级", value: "Class II" }
+                        ],
+                        features: [
+                            "连续测量功能",
+                            "蓝牙数据传输",
+                            "防尘防水设计",
+                            "背光LCD显示屏"
+                        ]
+                    }
+                ]
+            },
+            "storage-systems": {
+                title: "威克士电动工具",
+                description: "专业级电动工具系列，提供高效、可靠的动力解决方案",
+                products: [
+                    {
+                        name: "WORX 无刷锂电钻 WX372",
+                        image: "https://www.worx.cn/Upload/image/20221114/20221114153114_2953.png",
+                        badge: "新品上市",
+                        specs: [
+                            { label: "最大扭矩", value: "60 N·m" },
+                            { label: "电池电压", value: "20V" },
+                            { label: "转速", value: "0-2000 RPM" }
+                        ],
+                        features: [
+                            "无刷电机，寿命更长",
+                            "双速变速箱设计",
+                            "智能电子刹车系统",
+                            "LED工作照明"
+                        ]
+                    },
+                    {
+                        name: "WORX 多功能角磨机 WX801",
+                        image: "https://gw.alicdn.com/bao/uploaded/i3/639703175/O1CN01lIGagO1ZKCW4fiKDO_!!639703175.jpg_.webp",
+                        specs: [
+                            { label: "功率", value: "710W" },
+                            { label: "转速", value: "11000 RPM" },
+                            { label: "砂轮直径", value: "100mm" }
+                        ],
+                        features: [
+                            "多重安全保护装置",
+                            "防尘电机设计",
+                            "快速更换砂轮系统",
+                            "人体工学手柄"
+                        ]
+                    }
+                ]
+            },
+            "safety-equipment": {
+                title: "阿特拉斯气动工具",
+                description: "工业级气动工具解决方案，提供强劲动力和可靠性能",
+                products: [
+                    {
+                        name: "Atlas 气动冲击扳手 1\"",
+                        image: "https://www.fusheng-china.com.cn/images/products/pneumatic-tool-1.jpg",
+                        badge: "旗舰产品",
+                        specs: [
+                            { label: "最大扭矩", value: "1500 N·m" },
+                            { label: "工作气压", value: "6.2 bar" },
+                            { label: "空转转速", value: "6500 RPM" }
+                        ],
+                        features: [
+                            "钛合金打击机构",
+                            "双锤冲击设计",
+                            "精密齿轮箱",
+                            "低振动手柄"
+                        ]
+                    },
+                    {
+                        name: "Atlas 气动直柄砂轮机",
+                        image: "https://www.fusheng-china.com.cn/images/products/pneumatic-tool-2.jpg",
+                        specs: [
+                            { label: "功率", value: "0.5 HP" },
+                            { label: "转速", value: "25000 RPM" },
+                            { label: "进气口", value: "1/4\" NPT" }
+                        ],
+                        features: [
+                            "轻量化铝合金机身",
+                            "低振动设计",
+                            "精密轴承系统",
+                            "防滑橡胶手柄"
+                        ]
+                    }
+                ]
+            },
+            "automation": {
+                title: "非标自动化设备",
+                description: "定制化智能生产解决方案，满足特殊工艺需求",
+                products: [
+                    {
+                        name: "智能装配生产线系统",
+                        image: "https://www.fusheng-china.com.cn/images/products/automation-1.jpg",
+                        badge: "定制方案",
+                        specs: [
+                            { label: "生产节拍", value: "15-30秒/件" },
+                            { label: "定位精度", value: "±0.02mm" },
+                            { label: "控制系统", value: "PLC+视觉" }
+                        ],
+                        features: [
+                            "六轴机器人单元",
+                            "视觉检测系统",
+                            "自动送料机构",
+                            "数据追溯功能"
+                        ]
+                    },
+                    {
+                        name: "全自动光学检测设备",
+                        image: "https://www.fusheng-china.com.cn/images/products/automation-2.jpg",
+                        specs: [
+                            { label: "检测精度", value: "0.01mm" },
+                            { label: "检测速度", value: "1200件/小时" },
+                            { label: "相机分辨率", value: "500万像素" }
+                        ],
+                        features: [
+                            "多光谱成像技术",
+                            "AI缺陷识别算法",
+                            "模块化设计",
+                            "数据追溯系统"
+                        ]
+                    }
+                ]
+            }
+        };
+
+        $(function(){
+            $("#header-placeholder").load("templates/header.html");
+            $("#footer-placeholder").load("templates/footer.html", function() {
+                // 页面加载完成后初始化产品和动画
+                loadProducts();
+                initAnimations();
+                setupNavigation();
+            });
         });
-    });
+
+        // 加载产品
+        function loadProducts() {
+            const container = $('#product-container');
+            
+            // 为每个产品分类创建区域
+            Object.keys(productsData).forEach(categoryId => {
+                const category = productsData[categoryId];
+                
+                const section = $(`
+                    <section id="${categoryId}" class="product-category">
+                        <div class="section-header">
+                            <h2>${category.title}</h2>
+                            <p>${category.description}</p>
+                        </div>
+                        <div class="product-grid" id="grid-${categoryId}"></div>
+                    </section>
+                `);
+                
+                container.append(section);
+                
+                // 添加产品卡片
+                const grid = $(`#grid-${categoryId}`);
+                category.products.forEach(product => {
+                    const card = createProductCard(product);
+                    grid.append(card);
+                });
+            });
+            
+            // 移除加载动画
+            container.find('.loading').remove();
+        }
+
+        // 创建产品卡片
+        function createProductCard(product) {
+            const specsHtml = product.specs.map(spec => `
+                <li>
+                    <span class="spec-label">${spec.label}</span>
+                    <span class="spec-value">${spec.value}</span>
+                </li>
+            `).join('');
+
+            const featuresHtml = product.features.map(feature => `
+                <li>${feature}</li>
+            `).join('');
+
+            return $(`
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-media">
+                        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+                        <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <ul class="product-specs">${specsHtml}</ul>
+                        <ul class="product-features">${featuresHtml}</ul>
+                        <a href="#" class="btn-detail">
+                            <i class="fas fa-file-alt"></i> 查看详情
+                        </a>
+                    </div>
+                </div>
+            `);
+        }
+
+        // 初始化动画
+        function initAnimations() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 120
+            });
+        }
+
+        // 设置导航交互
+        function setupNavigation() {
+            // 动态导航交互
+            $(window).scroll(function () {
+                const sections = $('.product-category');
+                const navLinks = $('.nav-tab');
+                const scrollPos = $(window).scrollTop() + 200;
+
+                sections.each(function () {
+                    const top = $(this).offset().top;
+                    const bottom = top + $(this).outerHeight();
+
+                    if (scrollPos >= top && scrollPos <= bottom) {
+                        const id = $(this).attr('id');
+                        navLinks.removeClass('active');
+                        $(`.nav-tab[href="#${id}"]`).addClass('active');
+                    }
+                });
+            });
+
+            // 平滑滚动
+            $('.nav-tab').click(function (e) {
+                e.preventDefault();
+                const target = $($(this).attr('href'));
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 100
+                }, 800);
+                
+                // 更新活动标签
+                $('.nav-tab').removeClass('active');
+                $(this).addClass('active');
+            });
+        }
     </script>
 </body>
+
 </html>

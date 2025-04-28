@@ -4,114 +4,952 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于我们 - 湖南达嘉科技有限公司 | 智能制造系统解决方案专家</title>
+    <title>湖南达嘉科技 - 工厂级物流设备服务提供商</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/about.css">
+    <style>
+        /* 基础变量 */
+        :root {
+            --primary-blue: #2a5caa;
+            --accent-orange: #ff6b35;
+            --dark-gray: #333;
+            --medium-gray: #666;
+            --light-gray: #f5f7fa;
+            --white: #fff;
+        }
+
+        /* 基础样式 */
+        
+        /* 英雄区域 */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(42, 92, 170, 0.8), rgba(42, 92, 170, 0.8)),
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #e65a28;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 通用部分样式 */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-orange);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* 关于我们 */
+        .about-section {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--medium-gray);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            height: 450px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        /* 业务板块 */
+        .services-section {
+            background: var(--light-gray);
+        }
+
+        .service-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+            align-items: center;
+        }
+
+        .service-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .service-item:nth-child(even) .service-img {
+            order: 2;
+        }
+
+        .service-item:nth-child(even) .service-text {
+            order: 1;
+        }
+
+        .service-img {
+            height: 450px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-item:hover .service-img img {
+            transform: scale(1.05);
+        }
+
+        .service-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+
+        .service-text p {
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .service-features {
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .feature-icon {
+            color: var(--accent-orange);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        /* 产品展示 */
+        .products-section {
+            background: var(--white);
+        }
+
+        .product-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tab-btn {
+            padding: 12px 30px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--medium-gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 5px;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary-blue);
+        }
+
+        .tab-btn.active {
+            color: var(--primary-blue);
+            border-bottom: 3px solid var(--primary-blue);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .product-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+            align-items: center;
+        }
+
+        .product-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .product-img {
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-item:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+
+        .product-info p {
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .product-specs {
+            margin-top: 30px;
+            background: rgba(42, 92, 170, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+
+        .spec-name {
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        /* 案例展示 */
+        .cases-section {
+            background: var(--light-gray);
+        }
+
+        .case-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+            align-items: center;
+        }
+
+        .case-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-img {
+            height: 450px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .case-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .case-item:hover .case-img img {
+            transform: scale(1.05);
+        }
+
+        .case-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+
+        .case-info p {
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .case-results {
+            margin-top: 30px;
+            background: rgba(42, 92, 170, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .result-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .result-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .result-icon {
+            color: var(--accent-orange);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-orange);
+            transform: translateY(-5px);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .about-content,
+            .service-item,
+            .product-item,
+            .case-item {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .service-item:nth-child(even) .service-img,
+            .service-item:nth-child(even) .service-text {
+                order: initial;
+            }
+            
+            .about-image,
+            .service-img,
+            .product-img,
+            .case-img {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .product-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                margin: 5px 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .about-image,
+            .service-img,
+            .product-img,
+            .case-img {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-image,
+            .service-img,
+            .product-img,
+            .case-img {
+                height: 250px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- 导入头部 -->
     <div id="header-placeholder"></div>
 
-    <main class="about-page">
-        <!-- 公司简介横幅 -->
-        <section class="about-hero">
-            <div class="hero-overlay">
-                <h1>智造未来 · 服务工业</h1>
-                <p>专注智能制造系统解决方案本地化服务</p>
-            </div>
-        </section>
+    <!-- 英雄区域 -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 data-aos="fade-up">湖南达嘉科技有限公司</h1>
+            <p data-aos="fade-up" data-aos-delay="200">专注工业自动化 · 降低企业运营成本 · 解放劳动生产力</p>
+            <a href="#contact" class="btn" data-aos="fade-up" data-aos-delay="400">联系我们</a>
+        </div>
+    </section>
 
-        <!-- 公司概况 -->
-        <section class="company-profile">
-            <div class="container">
-                <div class="section-header">
-                    <h2>关于达嘉科技</h2>
-                    <div class="divider"></div>
-                </div>
-                <div class="profile-content">
-                    <div class="profile-text">
-                        <h3>湖南达嘉科技有限公司</h3>
-                        <p class="en-name">HUNAN DAJIA TECHNOLOGY CO., LTD</p>
-                        <p>湖南达嘉科技有限公司（简称：达嘉科技）是一家专注服务于制造型企业的技术型企业，致力于成为行业领先的智能制造系统解决方案服务商。</p>
-                        <p>公司现有三大业务板块：智能制造系统解决方案、自动化设备系统及信息化系统、和维修保养技术服务。产品和服务领域涉及工程机械、汽车、航空、轨道交通、精密机械、新能源、水务、环境工程、食品医疗等行业。
-                        </p>
-                    </div>
-                    <div class="profile-image">
-                        <img src="assets/img/company.jpg" alt="达嘉科技公司">
-                    </div>
-                </div>
+    <!-- 关于我们 -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>关于我们</h2>
+                <p>湖南达嘉科技有限公司是一家专注服务于制造型企业的技术型企业，致力于成为行业领先的智能制造系统解决方案服务商</p>
             </div>
-        </section>
 
-        <!-- 使命愿景 -->
-        <section class="mission-vision">
-            <div class="container">
-                <div class="mv-grid">
-                    <div class="mv-card">
-                        <i class="fas fa-bullseye"></i>
-                        <h3>企业使命</h3>
-                        <p>专注工业自动化、降低企业运营成本、解放劳动生产力！因为卓越，所以不断超越...</p>
-                    </div>
-                    <div class="mv-card">
-                        <i class="fas fa-eye"></i>
-                        <h3>企业愿景</h3>
-                        <p>成为行业领先的智能制造系统解决方案本地化服务提供商</p>
-                    </div>
-                    <div class="mv-card">
-                        <i class="fas fa-handshake"></i>
-                        <h3>核心价值观</h3>
-                        <p>"共创、共进、共赢"</p>
-                    </div>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h3>我们的使命</h3>
+                    <p>专注工业自动化、降低企业运营成本、解放劳动生产力！因为卓越，所以不断超越……</p>
+                    <p>公司秉承"共创、共进、共赢"的企业价值观和经营理念，坚持"质量第一，用户至上，信守诚信"的企业宗旨，为客户提供更优质、更安全、更可靠的产品和解决方案！</p>
+                    <p>产品和服务领域涉及工程机械、汽车、航空、轨道交通、精密机械、新能源、水务、环境工程、食品医疗等行业。</p>
+                    <p>公司拥有专业的研发团队和丰富的行业经验，已为数百家企业提供了优质的自动化解决方案，帮助客户实现了生产效率的大幅提升和运营成本的显著降低。</p>
+                </div>
+                <div class="about-image" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="达嘉科技工厂">
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
+    <!-- 业务板块 -->
+    <section class="section services-section" id="services">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>业务板块</h2>
+                <p>公司现有三大业务板块，服务领域涉及工程机械、汽车、航空、轨道交通、精密机械、新能源等多个行业</p>
+            </div>
 
-        <!-- 资质认证 -->
-        <section class="certifications">
-            <div class="container">
-                <div class="section-header">
-                    <h2>资质认证</h2>
-                    <div class="divider"></div>
-                    <p>公司获得企业AAA评级认证，并已将ISO9001质量体系、ISO14001环境体系和ISO45001职业健康体系纳入公司管理工作中</p>
+            <div class="service-item" data-aos="fade-up">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="智能制造系统解决方案">
                 </div>
-                <div class="certs-grid">
-                    <div class="cert-item">
-                        <img src="assets/img/iso9001.png" alt="ISO9001认证">
-                        <p>ISO9001质量体系认证</p>
-                    </div>
-                    <div class="cert-item">
-                        <img src="assets/img/iso14001.png" alt="ISO14001认证">
-                        <p>ISO14001环境体系认证</p>
-                    </div>
-                    <div class="cert-item">
-                        <img src="assets/img/iso45001.png" alt="ISO45001认证">
-                        <p>ISO45001职业健康认证</p>
-                    </div>
-                    <div class="cert-item">
-                        <img src="assets/img/aaa-cert.png" alt="AAA信用认证">
-                        <p>企业AAA信用评级</p>
+                <div class="service-text">
+                    <h3>智能制造系统解决方案</h3>
+                    <p>提供全方位的智能制造系统集成服务，帮助企业实现生产流程的数字化和智能化升级。我们的解决方案涵盖从规划设计到实施落地的全流程服务。</p>
+                    <p>通过引入先进的工业4.0技术，我们能够为客户打造高度自动化的生产线，实现生产数据的实时采集、分析和优化，大幅提升生产效率和产品质量。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>定制化解决方案，满足不同行业需求</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>整合MES、ERP等信息化系统</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>实现设备互联互通，数据可视化</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- 服务行业 -->
-    </main>
+            <div class="service-item" data-aos="fade-up">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1581093057305-25ad20a0e6a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="自动化设备系统">
+                </div>
+                <div class="service-text">
+                    <h3>自动化设备系统及信息化系统</h3>
+                    <p>自主研发的自动化设备和信息化管理系统，提升企业生产效率和质量管理水平。我们的系统可实现生产数据的实时采集、分析和可视化。</p>
+                    <p>我们拥有专业的研发团队，可根据客户需求定制开发各类自动化设备和信息化管理系统，帮助客户实现生产过程的数字化、智能化管理。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>自主研发，知识产权保障</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>支持远程监控和故障诊断</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>提供完善的API接口，易于集成</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <!-- 导入页脚 -->
+            <div class="service-item" data-aos="fade-up">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="维修保养技术服务">
+                </div>
+                <div class="service-text">
+                    <h3>维修保养技术服务</h3>
+                    <p>专业的设备维修保养团队，提供7×24小时快速响应服务，保障客户生产线的稳定运行。我们还提供设备操作培训和定期维护计划。</p>
+                    <p>我们建立了覆盖全国的服务网络，拥有经验丰富的技术服务团队，能够为客户提供及时、高效的设备维护和技术支持服务，最大限度减少设备停机时间。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>7×24小时快速响应</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>原厂配件供应，质量保证</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>预防性维护计划，延长设备寿命</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品展示 -->
+    <section class="section products-section" id="products">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>产品中心</h2>
+                <p>工厂级物流设备与智能制造解决方案，助力企业实现智能化升级</p>
+            </div>
+
+            <div class="product-tabs" data-aos="fade-up">
+                <button class="tab-btn active" onclick="openTab(event, 'logistics')">空中物流设备</button>
+                <button class="tab-btn" onclick="openTab(event, 'storage')">自动立体仓储</button>
+                <button class="tab-btn" onclick="openTab(event, 'protection')">工业防撞防护</button>
+                <button class="tab-btn" onclick="openTab(event, 'lifting')">升降解决方案</button>
+            </div>
+
+            <div id="logistics" class="tab-content active">
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1595341595379-cf0eda7db6a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="组合悬挂式起重机">
+                    </div>
+                    <div class="product-info">
+                        <h3>组合悬挂式起重机</h3>
+                        <p>模块化设计，可根据车间布局灵活配置，最大起重能力达5吨。适用于各种工业环境中的物料搬运需求。</p>
+                        <p>采用高强度铝合金轨道，运行平稳，噪音低；配备智能控制系统，可实现精确定位和自动化操作；符合国际安全标准，配备多重安全保护装置。</p>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-name">起重能力</span>
+                                <span>0.5-5吨</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">跨度</span>
+                                <span>3-15米</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">运行速度</span>
+                                <span>20m/min</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">控制方式</span>
+                                <span>手动/无线遥控/自动化</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="防坠落装置">
+                    </div>
+                    <div class="product-info">
+                        <h3>防坠落装置</h3>
+                        <p>安全可靠的重物防坠落系统，符合国际安全标准，保护人员和设备安全。适用于高空作业和重物搬运场景。</p>
+                        <p>采用机械式制动原理，反应时间小于0.1秒；最大制动力可达10吨；不锈钢材质，耐腐蚀；配备自检功能，确保系统始终处于最佳工作状态。</p>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-name">制动力</span>
+                                <span>最大10吨</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">反应时间</span>
+                                <span>&lt;0.1秒</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">适用温度</span>
+                                <span>-30℃~80℃</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">防护等级</span>
+                                <span>IP65</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="storage" class="tab-content">
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="高架仓库系统">
+                    </div>
+                    <div class="product-info">
+                        <h3>高架仓库系统</h3>
+                        <p>最大化利用垂直空间，存储密度提升300%，存取效率提高600%。适用于各类仓储物流中心。</p>
+                        <p>采用模块化设计，可根据场地条件灵活配置；配备智能仓储管理系统，实现库存精准管理；支持与AGV、堆垛机等自动化设备无缝对接。</p>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-name">最大高度</span>
+                                <span>30米</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">承重能力</span>
+                                <span>每层1-5吨</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">存取效率</span>
+                                <span>50-200托盘/小时</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">控制系统</span>
+                                <span>WMS/WCS集成</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="protection" class="tab-content">
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="弹性防撞柱">
+                    </div>
+                    <div class="product-info">
+                        <h3>弹性防撞柱</h3>
+                        <p>高分子复合材料外壳，受撞击时旋转卸力，保护设备和人员安全。适用于仓库、停车场等区域。</p>
+                        <p>采用弹性复合材料，可承受5吨冲击力；360度旋转设计，有效吸收冲击能量；安装简便，无需特殊工具；表面反光设计，提高夜间可视性。</p>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-name">抗冲击力</span>
+                                <span>最大5吨</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">直径</span>
+                                <span>200mm/300mm</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">高度</span>
+                                <span>800mm/1000mm</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">安装方式</span>
+                                <span>膨胀螺栓/化学锚栓</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="lifting" class="tab-content">
+                <div class="product-item" data-aos="fade-up">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="升降工作台">
+                    </div>
+                    <div class="product-info">
+                        <h3>升降工作台</h3>
+                        <p>可调节高度的工业级工作平台，配备安全防护装置，提升工作效率。适用于装配、维修等作业场景。</p>
+                        <p>采用液压或电动驱动，升降平稳；最大承重可达2吨；配备安全护栏和紧急停止装置；可选配旋转台面、倾斜功能等附加模块。</p>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-name">升降高度</span>
+                                <span>1-6米</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">台面尺寸</span>
+                                <span>定制</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">承重能力</span>
+                                <span>0.5-2吨</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">驱动方式</span>
+                                <span>液压/电动</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 案例展示 -->
+    <section class="section cases-section" id="cases">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>应用案例</h2>
+                <p>我们为各行业客户提供定制化的智能制造解决方案，助力企业实现数字化转型</p>
+            </div>
+
+            <div class="case-item" data-aos="fade-up">
+                <div class="case-img">
+                    <img src="https://images.unsplash.com/photo-1581093057305-25ad20a0e6a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="汽车制造案例">
+                </div>
+                <div class="case-info">
+                    <h3>汽车制造行业</h3>
+                    <p>为某知名汽车厂商提供全自动装配线，生产效率提升40%，人力成本降低30%。</p>
+                    <p>项目内容包括车身焊接自动化线、总装输送系统和质量检测系统。通过引入机器人焊接、AGV物料配送和视觉检测技术，实现了生产过程的全面自动化。</p>
+                    <div class="case-results">
+                        <div class="result-item">
+                            <div class="result-icon"><i class="fas fa-chart-line"></i></div>
+                            <div>生产效率提升40%</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-icon"><i class="fas fa-user-minus"></i></div>
+                            <div>人力成本降低30%</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>产品合格率提升至99.5%</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-icon"><i class="fas fa-clock"></i></div>
+                            <div>交付周期缩短25%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-item" data-aos="fade-up">
+                <div class="case-img">
+                    <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="航空制造案例">
+                </div>
+                <div class="case-info">
+                    <h3>航空制造行业</h3>
+                    <p>为航空零部件供应商设计精密装配系统，产品合格率提升至99.8%，废品率降低80%。</p>
+                    <p>项目内容包括精密装配工作站、自动化检测系统和数字化管理系统。通过引入高精度机器人、力控系统和3D视觉技术，实现了航空零部件的精密装配和质量控制。</p>
+                    <div class="case-results">
+                        <div class="result-item">
+                            <div class="result-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>产品合格率提升至99.8%</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-icon"><i class="fas fa-trash-alt"></i></div>
+                            <div>废品率降低80%</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-icon"><i class="fas fa-bolt"></i></div>
+                            <div>装配效率提升35%</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-icon"><i class="fas fa-database"></i></div>
+                            <div>实现全过程质量追溯</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 返回顶部按钮 -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
     <div id="footer-placeholder"></div>
-    <!-- 加载共用模板 -->
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    
-    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         $(function () {
             $("#header-placeholder").load("templates/header.html");
             $("#footer-placeholder").load("templates/footer.html");
+        })
+        
+        // 初始化AOS动画
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-quad'
+        });
+
+        // 产品标签切换
+        function openTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+
+            tabbuttons = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // 返回顶部按钮
+        window.addEventListener('scroll', function () {
+            var backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
 </body>

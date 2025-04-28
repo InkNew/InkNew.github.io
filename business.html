@@ -5,16 +5,335 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>业务板块 - 湖南达嘉科技有限公司</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/business.css">
+    <style>
+        /* 基础变量 */
+        :root {
+            --primary-blue: #2a5caa;
+            --accent-orange: #ff6b35;
+            --dark-gray: #333;
+            --medium-gray: #666;
+            --light-gray: #f5f7fa;
+            --white: #fff;
+        }
+
+        /* 业务板块横幅 */
+        .business-hero {
+            height: 60vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .hero-overlay {
+            max-width: 800px;
+            padding: 20px;
+            z-index: 2;
+        }
+
+        .business-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .business-hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 核心业务 */
+        .core-business {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: var(--accent-orange);
+            margin: 0 auto 20px;
+        }
+
+        .section-header p {
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .business-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .business-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 40px;
+            align-items: flex-start;
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .business-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .business-icon {
+            background: var(--primary-blue);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2.5rem;
+            box-shadow: 0 5px 15px rgba(42, 92, 170, 0.3);
+        }
+
+        .business-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--primary-blue);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .business-content h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-orange);
+            bottom: 0;
+            left: 0;
+        }
+
+        .business-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-item i {
+            color: var(--accent-orange);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .feature-item span {
+            font-weight: 600;
+            color: var(--dark-gray);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .feature-desc {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .product-showcase, .service-features {
+            background: rgba(42, 92, 170, 0.05);
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .product-showcase h4, .service-features h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .product-tags, .feature-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .product-tags span, .feature-tags span {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .brand-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .brand-logos img {
+            height: 40px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .brand-logos img:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+
+        /* 行业应用 */
+        .industry-applications {
+            padding: 100px 0;
+            background: var(--light-gray);
+        }
+
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .industry-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .industry-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        .industry-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .industry-card p {
+            color: var(--medium-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .business-item {
+                grid-template-columns: 1fr;
+            }
+            
+            .business-icon {
+                margin: 0 auto 30px;
+            }
+            
+            .business-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .business-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .business-hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .business-item {
+                padding: 30px;
+            }
+            
+            .industry-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .business-hero {
+                height: 50vh;
+                min-height: 400px;
+            }
+            
+            .business-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .industry-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- 导入头部 -->
     <div id="header-placeholder"></div>
-
     <main class="business-page">
         <!-- 业务板块横幅 -->
-        <section class="business-hero">
+        <section class="business-hero" data-aos="fade">
             <div class="hero-overlay">
                 <h1>专业工业服务解决方案</h1>
                 <p>智能制造 · 自动化设备 · 维修保养</p>
@@ -24,7 +343,7 @@
         <!-- 核心业务 -->
         <section class="core-business">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header" data-aos="fade-up">
                     <h2>我们的核心业务</h2>
                     <div class="divider"></div>
                     <p>专注为制造型企业提供全方位技术服务</p>
@@ -32,7 +351,7 @@
                 
                 <div class="business-grid">
                     <!-- 智能制造系统解决方案 -->
-                    <div class="business-item">
+                    <div class="business-item" data-aos="fade-up">
                         <div class="business-icon">
                             <i class="fas fa-industry"></i>
                         </div>
@@ -41,23 +360,31 @@
                             <div class="business-features">
                                 <div class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    <span>智能仓储物流系统</span>
-                                    <p class="feature-desc">提供自动化立体仓储、智能搬运等解决方案，节省70%以上存储空间</p>
+                                    <div>
+                                        <span>智能仓储物流系统</span>
+                                        <p class="feature-desc">提供自动化立体仓储、智能搬运等解决方案，节省70%以上存储空间，提升物流效率300%</p>
+                                    </div>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    <span>自动化生产线设计</span>
-                                    <p class="feature-desc">定制化生产线规划，提高生产效率200%-600%</p>
+                                    <div>
+                                        <span>自动化生产线设计</span>
+                                        <p class="feature-desc">定制化生产线规划，提高生产效率200%-600%，降低人工成本40%以上</p>
+                                    </div>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    <span>数字化工厂规划</span>
-                                    <p class="feature-desc">实现生产全流程数字化管理，精确度高达99%</p>
+                                    <div>
+                                        <span>数字化工厂规划</span>
+                                        <p class="feature-desc">实现生产全流程数字化管理，数据精确度高达99%，决策响应速度提升80%</p>
+                                    </div>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    <span>工业机器人集成</span>
-                                    <p class="feature-desc">柔性化生产线设计，适应多样化生产需求</p>
+                                    <div>
+                                        <span>工业机器人集成</span>
+                                        <p class="feature-desc">柔性化生产线设计，适应多样化生产需求，换型时间缩短90%</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="product-showcase">
@@ -75,7 +402,7 @@
                     </div>
                     
                     <!-- 自动化设备系统及信息化系统 -->
-                    <div class="business-item">
+                    <div class="business-item" data-aos="fade-up" data-aos-delay="100">
                         <div class="business-icon">
                             <i class="fas fa-robot"></i>
                         </div>
@@ -84,23 +411,31 @@
                             <div class="business-features">
                                 <div class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    <span>工业自动化设备集成</span>
-                                    <p class="feature-desc">提供0.1Nm至4000Nm区间的精准定招工具</p>
+                                    <div>
+                                        <span>工业自动化设备集成</span>
+                                        <p class="feature-desc">提供0.1Nm至4000Nm区间的精准定招工具，重复定位精度±0.01mm</p>
+                                    </div>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    <span>MES系统实施</span>
-                                    <p class="feature-desc">实现生产执行系统数字化管理</p>
+                                    <div>
+                                        <span>MES系统实施</span>
+                                        <p class="feature-desc">实现生产执行系统数字化管理，生产异常响应时间缩短95%</p>
+                                    </div>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    <span>设备联网与监控</span>
-                                    <p class="feature-desc">通过有线电缆、无线网络及工业网络实现数据采集</p>
+                                    <div>
+                                        <span>设备联网与监控</span>
+                                        <p class="feature-desc">通过有线电缆、无线网络及工业网络实现数据采集，设备OEE提升35%</p>
+                                    </div>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    <span>数据采集与分析</span>
-                                    <p class="feature-desc">SPC Manager, CAD Linker实现数据无线采集和分析</p>
+                                    <div>
+                                        <span>数据采集与分析</span>
+                                        <p class="feature-desc">SPC Manager, CAD Linker实现数据无线采集和分析，质量缺陷降低60%</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="product-showcase">
@@ -117,7 +452,7 @@
                     </div>
                     
                     <!-- 维修保养技术服务 -->
-                    <div class="business-item">
+                    <div class="business-item" data-aos="fade-up" data-aos-delay="200">
                         <div class="business-icon">
                             <i class="fas fa-tools"></i>
                         </div>
@@ -126,23 +461,31 @@
                             <div class="business-features">
                                 <div class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    <span>设备预防性维护</span>
-                                    <p class="feature-desc">定期检查保养，延长设备使用寿命</p>
+                                    <div>
+                                        <span>设备预防性维护</span>
+                                        <p class="feature-desc">定期检查保养，延长设备使用寿命30%以上，故障率降低80%</p>
+                                    </div>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    <span>快速响应维修</span>
-                                    <p class="feature-desc">全国800余名售后工程师，24小时响应</p>
+                                    <div>
+                                        <span>快速响应维修</span>
+                                        <p class="feature-desc">全国800余名售后工程师，24小时响应，平均到场时间4小时</p>
+                                    </div>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    <span>备件管理服务</span>
-                                    <p class="feature-desc">原厂备件供应，确保设备最佳性能</p>
+                                    <div>
+                                        <span>备件管理服务</span>
+                                        <p class="feature-desc">原厂备件供应，确保设备最佳性能，备件供应准确率99.9%</p>
+                                    </div>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    <span>设备性能优化</span>
-                                    <p class="feature-desc">先进数据库网络，助力工艺改进和技术控制</p>
+                                    <div>
+                                        <span>设备性能优化</span>
+                                        <p class="feature-desc">先进数据库网络，助力工艺改进和技术控制，能耗降低15%-30%</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="service-features">
@@ -165,59 +508,59 @@
         <!-- 行业应用 -->
         <section class="industry-applications">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header" data-aos="fade-up">
                     <h2>行业应用</h2>
                     <div class="divider"></div>
                     <p>我们的解决方案已成功应用于多个行业</p>
                 </div>
                 
                 <div class="industry-grid">
-                    <div class="industry-card">
+                    <div class="industry-card" data-aos="fade-up" data-aos-delay="0">
                         <div class="industry-icon">
                             <i class="fas fa-car"></i>
                         </div>
                         <h3>汽车制造</h3>
-                        <p>为比亚迪、丰田、本田等提供自动化装配解决方案</p>
+                        <p>为比亚迪、丰田、本田等提供自动化装配解决方案，单线产能提升400%</p>
                     </div>
                     
-                    <div class="industry-card">
+                    <div class="industry-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="industry-icon">
                             <i class="fas fa-plane"></i>
                         </div>
                         <h3>航空航天</h3>
-                        <p>服务中国航空工业集团等高端制造企业</p>
+                        <p>服务中国航空工业集团等高端制造企业，装配精度达0.001mm</p>
                     </div>
                     
-                    <div class="industry-card">
+                    <div class="industry-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="industry-icon">
                             <i class="fas fa-train"></i>
                         </div>
                         <h3>轨道交通</h3>
-                        <p>为中车提供精密测量和装配系统</p>
+                        <p>为中车提供精密测量和装配系统，生产节拍提升300%</p>
                     </div>
                     
-                    <div class="industry-card">
+                    <div class="industry-card" data-aos="fade-up" data-aos-delay="0">
                         <div class="industry-icon">
                             <i class="fas fa-bolt"></i>
                         </div>
                         <h3>新能源</h3>
-                        <p>为亿纬锂能等提供锂电池生产解决方案</p>
+                        <p>为亿纬锂能等提供锂电池生产解决方案，良品率提升至99.5%</p>
                     </div>
                     
-                    <div class="industry-card">
+                    <div class="industry-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="industry-icon">
                             <i class="fas fa-utensils"></i>
                         </div>
                         <h3>食品医疗</h3>
-                        <p>符合卫生标准的自动化生产设备</p>
+                        <p>符合GMP标准的自动化生产设备，卫生等级提升2个级别</p>
                     </div>
                     
-                    <div class="industry-card">
+                    <div class="industry-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="industry-icon">
                             <i class="fas fa-tint"></i>
                         </div>
                         <h3>水务工程</h3>
-                        <p>智能化水处理设备与监控系统</p>
+                        <p>智能化水处理设备与监控系统，运营成本降低40%</p>
                     </div>
                 </div>
             </div>
@@ -228,10 +571,18 @@
     <div id="footer-placeholder"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
     $(function(){
         $("#header-placeholder").load("templates/header.html");
         $("#footer-placeholder").load("templates/footer.html");
+        
+        // 初始化AOS动画
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-quad'
+        });
     });
     </script>
 </body>
